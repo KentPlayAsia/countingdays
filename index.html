@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My PlayAsia Day Counter</title>
+<link rel="stylesheet" href="style.css">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('pa-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+  <div class="bg-aurora" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <div class="bg-fx" aria-hidden="true">
+    <span style="left:4%; font-size:28px; animation-duration:16s; animation-delay:0s;">🎮</span>
+    <span style="left:14%; font-size:20px; animation-duration:22s; animation-delay:2s;">👾</span>
+    <span style="left:24%; font-size:24px; animation-duration:19s; animation-delay:5s;">🎲</span>
+    <span style="left:36%; font-size:18px; animation-duration:25s; animation-delay:1s;">⭐</span>
+    <span style="left:48%; font-size:30px; animation-duration:18s; animation-delay:7s;">🛸</span>
+    <span style="left:58%; font-size:22px; animation-duration:21s; animation-delay:3s;">🕹️</span>
+    <span style="left:68%; font-size:26px; animation-duration:17s; animation-delay:6s;">👻</span>
+    <span style="left:78%; font-size:20px; animation-duration:23s; animation-delay:4s;">🎉</span>
+    <span style="left:88%; font-size:24px; animation-duration:20s; animation-delay:8s;">🎯</span>
+    <span style="left:94%; font-size:18px; animation-duration:24s; animation-delay:2.5s;">⭐</span>
+  </div>
+
+  <main class="card">
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle light / dark mode">
+      <span class="icon icon-sun">☀️</span>
+      <span class="icon icon-moon">🌙</span>
+    </button>
+
+    <p class="eyebrow">Working at</p>
+    <h1>PlayAsia</h1>
+
+    <div class="day-count">
+      <span id="dayNumber">0</span>
+      <span class="label">days</span>
+    </div>
+
+    <p class="since">since <span id="startDateText"></span></p>
+    <p class="clock" id="clock"></p>
+
+    <div class="breakdown" id="breakdown"></div>
+
+    <div class="live-counter">
+      <p class="live-label">Live time at PlayAsia (hrs/min/sec = today, 9am–6pm)</p>
+      <div class="live-grid" id="liveCounter"></div>
+    </div>
+
+    <div class="hours-worked">
+      <span class="num" id="hoursWorked">0</span>
+      <span class="unit">hours worked (Mon–Fri, 9am–6pm)</span>
+      <span class="status" id="workStatus"></span>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
